@@ -1,0 +1,50 @@
+.joinForm__input {
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+    padding: 10px 10px;
+}
+
+.joinForm__label {
+    font-size: 16px;
+    color: rgb(145, 97, 106);
+}
+
+.joinForm__error {
+    padding: 3px;
+    color: red;
+    display: none;
+}
+input:invalid[focused="true"]{
+   border: 1px solid red;
+}
+input:invalid[focused="true"]~.joinForm__error {
+    display: block;
+}
+
+.joinInput {
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid rgb(145, 97, 106);
+    font-size: 16px;
+
+}
+
+/* .form-check-input-wraper {
+    flex-direction: row;
+
+} */
+.form-check-input {
+    border: 2px solid rgb(145, 97, 106);
+    border-radius: 5px;
+    width: 120px;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: brown;
+    /* cursor: pointer; */
+}
+
+/* fieldset {
+    border: none;
+} */

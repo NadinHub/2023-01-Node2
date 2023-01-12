@@ -1,0 +1,29 @@
+.addwrap {
+    background: linear-gradient(rgb(255, 255, 255, 0.6), rgb(118, 124, 118, 0.3))
+}
+
+.add {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+form {
+    background-color: white;
+    padding: 20px 30px;
+    border-radius: 10px;
+}
+.formButton {
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    border: none;
+    background-color: rgb(144, 51, 153);
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}

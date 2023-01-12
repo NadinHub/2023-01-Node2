@@ -1,16 +1,21 @@
 import express from "express"
 import mysql from "mysql"
 import cors from "cors"
+// import { writeFile,readFile } from 'node:fs';
 
 const app = express()
 
 const db = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "*****",
-    database: "2022-12-db"
+    password: "",
+    database: "2023-01-node2"
 })
-
+//Test of writeFile module/method
+// writeFile('one.txt', 'work', (err)=>{
+//     if (err) console.log('Error')
+// })
+// ==============
 app.use(express.json()) //express server middleware - it allows us to send any json file using a client
 app.use(cors())
 
@@ -19,7 +24,7 @@ app.get("/", (req, res) => {
 })
 
 app.get("/cats", (req, res) => {
-    const q = "SELECT * FROM cats"
+    const q = "SELECT * FROM cat"
     db.query(q, (err, data) => {
         if (err) return res.json(err)
         return res.json(data) 
@@ -28,12 +33,11 @@ app.get("/cats", (req, res) => {
 
 //Usually all CRUD operations are doing in different folder, but here all together
 app.post("/cats", (req, res) => {
-    const q = "INSERT INTO cats (`nickname`,`desc`,`price`,`cover`) VALUES(?)" //"?" inside VALUES provides security
+    const q = "INSERT INTO cat (`cat_name`,`sex`,`cat_birthdate`) VALUES(?)" //"?" inside VALUES provides security
     const values = [
-        req.body.nickname, //user request inside Body
-        req.body.desc,
-        req.body.price,
-        req.body.cover,
+        req.body.cat_name, //user request inside Body
+        req.body.sex,
+        req.body.cat_birthdate,
     ]
 // we take all values from users. For test can use const values =["nickname from backend", "desc from backend", "cover from backend"]
 
@@ -48,7 +52,7 @@ app.post("/cats", (req, res) => {
 app.delete("/cats/:id", (req, res)=> {
     const catId = req.params.id;
     //res.send(req.params.id);
-    const q = "DELETE FROM cats WHERE id = ?"
+    const q = "DELETE FROM cat WHERE id = ?"
 
     db.query (q, [catId], (err, data)=>{
         if (err) return res.json (err);
@@ -59,12 +63,11 @@ app.delete("/cats/:id", (req, res)=> {
 app.put("/cats/:id", (req, res)=> {
     const catId = req.params.id;
     //res.send(req.params.id);
-    const q = "UPDATE cats SET `nickname`=?, `desc`=?, `price`=?, `cover`=? WHERE id = ?"
+    const q = "UPDATE cat SET `cat_name`=?, `sex`=?, `cat_birthdate`=? WHERE id = ?"
     const values = [
-        req.body.nickname, //user request inside Body
-        req.body.desc,
-        req.body.price,
-        req.body.cover,
+        req.body.cat_name, //user request inside Body
+        req.body.sex,
+        req.body.cat_birthdate,
     ]
     db.query (q, [...values, catId], (err, data)=>{
         if (err) return res.json (err);
