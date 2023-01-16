@@ -3,6 +3,8 @@ import { Link } from "react-router-dom"
 import { useEffect } from 'react';
 import { useState } from 'react';
 import axios from 'axios'
+import "./cats.css"
+import Header from './components/Header';
 
 const Cats = () => {
     const [cats, setCats] = useState([]);
@@ -11,10 +13,8 @@ const Cats = () => {
             try {
                 const res = await axios.get("http://localhost:8800/cats") //we made a request to bring us info from front on this http address
                 setCats(res.data);
-                //console.log(res);
             } catch (error) {
                 console.log(error);
-
             }
         }
         fetchAllCats()
@@ -31,18 +31,20 @@ const Cats = () => {
     }
     return (
         <div>
+            <Header/>
             <h1>Lama Cats Store</h1>
-            <div className="wrap">
+            <div className="catswrap">
                 {/* in Flex layout block__row is a Flex-container, because Flex works only in one demension - horizonte */}
                 <div className="block__row">
+                    {/* cats here is our state */}
                     {cats.map((cat) => (
                         <div className="block__column" key={cat.id}>
                             <div className="block__item">
                                 {/* We use key when we do map */}
                                 {cat.cover && <img className='catimg' src={cat.cover} alt="" />}
-                                <h2>{cat.nickname}</h2>
-                                <p>{cat.desc}</p>
-                                <span>{cat.price}</span>
+                                <h2>{cat.cat_name}</h2>
+                                <p>{cat.sex}</p>
+                                <span>🎂 Birthday : {cat.cat_birthdate}</span>
                                 <button className="delete" onClick={() => handleDelete(cat.id)}>Delete</button>
                                 <button className="update"><Link to={`/update/${cat.id}`}>Update</Link></button>
                             </div>
@@ -56,6 +58,16 @@ const Cats = () => {
     )
 }
 
+// const Cat = (cat) => {
+//     <div className="block__item">
+//         {cat.cover && <img className='catimg' src={cat.cover} alt="" />}
+//         <h2>{cat.cat_name}</h2>
+//         <p>{cat.sex}</p>
+//         <span>🎂 Birthday : {cat.cat_birthdate}</span>
+//         <button className="delete" onClick={() => handleDelete(cat.id)}>Delete</button>
+//         <button className="update"><Link to={`/update/${cat.id}`}>Update</Link></button>
+//     </div>
+// }
 export default Cats
 
 //rafce - shortcuts

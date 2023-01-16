@@ -1,6 +1,5 @@
 // import axios from 'axios';
 import React, { useState } from 'react'
-// import { useNavigate } from 'react-router-dom';
 import FormInput from './components/FormInput';
 import "./join.css"
 
@@ -10,7 +9,7 @@ const Join = () => {
     email: "",
     birthday: "",
     password: "",
-    confirmPassword:"",
+    confirmPassword: "",
   });
   // our object in useState - used in the first time rendering
   const inputs = [
@@ -83,7 +82,7 @@ const Join = () => {
     //   checked: false,
     // }
   ]
-  // const navigate = useNavigate()
+
   const handleSubmit = e => {
     e.preventDefault();
     // try {
@@ -111,18 +110,7 @@ const Join = () => {
       </div>
     </div>
   )
-  // return (
-  //   <div className="formwrap">
-  //     <div className='form'>
-  //       <h1> Add new cat</h1>
-  //       <input type="text" placeholder='Cat name' onChange={handleChange} name='cat_name' />
-  //       <label><input type="radio" onChange={handleChange} name='sex' value={'male'} defaultChecked />Male</label>
-  //       <label><input type="radio" onChange={handleChange} name='sex' value={'female'} />Female</label>
-  //       <label>Birthdate<input type="date" onChange={handleChange} name='cat_birthdate' /></label>
-  //       <button className='formButton' onClick={handleClick}>Send</button>
-  //     </div>
-  //   </div>
-  // )
+
 }
 
 export default Join

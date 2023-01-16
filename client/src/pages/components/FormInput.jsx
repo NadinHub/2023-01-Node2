@@ -2,7 +2,6 @@ import { useState } from "react";
 import "./formInput.css"
 
 const FormInput = (props) => {
-    console.log(props);
     const [focused, setFocused] = useState(false);
     const { label: label1, errorMessage, onChange, id, className, ...inputProps } = props;
     // label = "Username" or ...

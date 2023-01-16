@@ -3,7 +3,6 @@ import Cats from "./pages/Cats";
 import Join from "./pages/Join";
 import Add from "./pages/Add";
 import Update from "./pages/Update";
-import "./style.css"
 
 function App() {
   return (

@@ -1,0 +1,16 @@
+.header {
+    background-color: lightgray;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.logo {
+    width: 100px;
+    height: auto;
+}
+
+.wraplogo {
+padding: 3px;
+}
