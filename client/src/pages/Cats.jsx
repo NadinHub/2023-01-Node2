@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import axios from 'axios'
 import "./cats.css"
-import Header from './components/Header';
+import Header from '../components/header/Header';
 
 const Cats = () => {
     const [cats, setCats] = useState([]);
