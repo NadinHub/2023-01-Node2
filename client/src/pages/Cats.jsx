@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import axios from 'axios'
 import "./cats.css"
-import Header from '../components/header/Header';
+import Header from '../components/Header/Header';
 
 const Cats = () => {
     const [cats, setCats] = useState([]);
@@ -20,15 +20,6 @@ const Cats = () => {
         fetchAllCats()
     }, [])
 
-    const handleDelete = async (id) => {
-        try {
-            await axios.delete("http://localhost:8800/cats/" + id)//it makes a request to my backend=server
-            window.location.reload() //to force the document to be fetced from the web server again. 
-            // Without it, when we delete a cat - it deletes in DB, but still in frontend.In future it better to do it using REDUX or some other managment tools
-        } catch (error) {
-            console.log(error)
-        }
-    }
     return (
         <div>
             <Header/>
@@ -39,15 +30,7 @@ const Cats = () => {
                     {/* cats here is our state */}
                     {cats.map((cat) => (
                         <div className="block__column" key={cat.id}>
-                            <div className="block__item">
-                                {/* We use key when we do map */}
-                                {cat.cover && <img className='catimg' src={cat.cover} alt="" />}
-                                <h2>{cat.cat_name}</h2>
-                                <p>{cat.sex}</p>
-                                <span>🎂 Birthday : {cat.cat_birthdate}</span>
-                                <button className="delete" onClick={() => handleDelete(cat.id)}>Delete</button>
-                                <button className="update"><Link to={`/update/${cat.id}`}>Update</Link></button>
-                            </div>
+                            <Cat1 cat_name={cat.cat_name} sex={cat.sex} cat_birthdate={cat.cat_birthdate} id={cat.id}/>
                         </div>
                     ))}
                 </div>
@@ -58,16 +41,27 @@ const Cats = () => {
     )
 }
 
-// const Cat = (cat) => {
-//     <div className="block__item">
-//         {cat.cover && <img className='catimg' src={cat.cover} alt="" />}
-//         <h2>{cat.cat_name}</h2>
-//         <p>{cat.sex}</p>
-//         <span>🎂 Birthday : {cat.cat_birthdate}</span>
-//         <button className="delete" onClick={() => handleDelete(cat.id)}>Delete</button>
-//         <button className="update"><Link to={`/update/${cat.id}`}>Update</Link></button>
-//     </div>
-// }
+const Cat1 = (props) => {
+    const handleDelete = async (id) => {
+        try {
+            await axios.delete("http://localhost:8800/cats/" + id)//it makes a request to my backend=server
+            window.location.reload() //to force the document to be fetced from the web server again. 
+            // Without it, when we delete a cat - it deletes in DB, but still in frontend.In future it better to do it using REDUX or some other managment tools
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    return (
+        <div className="block__item">
+        {/* {props.cover && <img className='catimg' src={props.cover} alt="" />} */}
+        <h2>{props.cat_name}</h2>
+        <p>{props.sex}</p>
+        <span>🎂 Birthday : {props.cat_birthdate}</span>
+        <button className="delete" onClick={() => handleDelete(props.id)}>Delete</button>
+        <button className="update"><Link to={`/update/${props.id}`}>Update</Link></button>
+        </div>
+    )
+}
 export default Cats
 
 //rafce - shortcuts

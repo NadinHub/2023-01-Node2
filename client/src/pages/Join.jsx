@@ -1,6 +1,6 @@
 // import axios from 'axios';
 import React, { useState } from 'react'
-import FormInput from '../components/formInput/FormInput';
+import FormInput from '../components/FormInput/FormInput';
 import "./join.css"
 
 const Join = () => {

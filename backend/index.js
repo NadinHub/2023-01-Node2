@@ -9,7 +9,7 @@ const app = express()
 const db = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "***",
+    password: "*",
     database: "2023-01-node2"
 })
 //Test of writeFile module/method
