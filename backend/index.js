@@ -1,17 +1,13 @@
 import express from "express"
-import mysql from "mysql"
+import * as mysql from "mysql"
 import cors from "cors"
 import moment from "moment"
+import config from './config/index.js'
 // import { writeFile,readFile } from 'node:fs';
 
 const app = express()
 
-const db = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "*",
-    database: "2023-01-node2"
-})
+const db = mysql.createConnection(config.mysql);
 //Test of writeFile module/method
 // writeFile('one.txt', 'work', (err)=>{
 //     if (err) console.log('Error')

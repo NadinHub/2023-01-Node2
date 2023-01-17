@@ -1,4 +1,5 @@
 node_modules
+backend/config/index.js
 logs/
 *.log
 
