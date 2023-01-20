@@ -5,7 +5,8 @@ import "./join.css"
 
 const Join = () => {
   const [values, setValues] = useState({
-    username: "",
+    first_name: "",
+    last_name: "",
     email: "",
     birthday: "",
     password: "",
@@ -15,17 +16,28 @@ const Join = () => {
   const inputs = [
     {
       id: 1,
-      name: "username",
+      name: "first_name",
       type: "text",
-      placeholder: "Username",
-      errorMessage: "Username should be 3-16 characters and shouldn't include any special character.",
-      label: "Username",
+      placeholder: "First name",
+      errorMessage: "First name should be 3-16 characters and shouldn't include any special character.",
+      label: "First name",
       pattern: "^[A-Za-z0-9]{3,16}$",
       required: true,
       // className:"joinInput"
     },
     {
       id: 2,
+      name: "last_name",
+      type: "text",
+      placeholder: "Last name",
+      errorMessage: "Last name should be 3-16 characters and shouldn't include any special character.",
+      label: "Last name",
+      pattern: "^[A-Za-z0-9]{3,16}$",
+      required: true,
+      // className:"joinInput"
+    },
+    {
+      id: 3,
       name: "email",
       type: "email",
       placeholder: "Email",
@@ -35,7 +47,7 @@ const Join = () => {
       // className:"joinInput"
     },
     {
-      id: 3,
+      id: 4,
       name: "birthday",
       type: "date",
       placeholder: "Birthday",
@@ -44,7 +56,7 @@ const Join = () => {
       // className:"joinInput"
     },
     {
-      id: 4,
+      id: 5,
       name: "password",
       type: "password",
       placeholder: "Password",
@@ -55,7 +67,7 @@ const Join = () => {
       // className:"joinInput"
     },
     {
-      id: 5,
+      id: 6,
       name: "confirmPassword",
       type: "password",
       placeholder: "Confirm Password",

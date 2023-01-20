@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import "./header.css";
+import "./header.scss";
 // import Join from "./pages/Join";
 // import Cats from "./pages/Cats";
 // import Add from "./pages/Add";
@@ -13,6 +13,7 @@ const Header = () => {
           </div>
             <NavLink to="../"> Main </NavLink>
             <NavLink to="../Join"> Join us </NavLink>
+            <NavLink to="../Add"> Add a cat </NavLink>
             <NavLink to="../Cats"> My space </NavLink>
             {/* <a href="./Join"> Join us!</a> */}
             {/* <BrowserRouter>

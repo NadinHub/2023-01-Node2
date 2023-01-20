@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-// import FormInput from './components/FormInput';
+import { UploadFile } from '../components/UploadFile/UploadFile.jsx';
 import "./add.css"
 
 const Add = () => {
@@ -9,6 +9,7 @@ const Add = () => {
     cat_name: "",
     sex: "male",
     cat_birthdate: "",
+    breed: "",
   });
 
   const onChange = (e) => {
@@ -17,6 +18,7 @@ const Add = () => {
   };
 
   const navigate = useNavigate()
+
   const handleSubmit = async e => {
     e.preventDefault();
     try {
@@ -35,7 +37,10 @@ const Add = () => {
           <h1>Add a new cat</h1>
           {/* <FormInput label="Cat name" type="text" name='cat_name' placeholder="Cat name" onChange={onChange} /> */}
           <label>Cat name<input type="text" placeholder='Cat name' onChange={onChange} name='cat_name' /></label>
-
+          <div>
+            <label htmlFor='breed'>Breed</label>
+            <input type="text" placeholder='Breed' onChange={onChange} name='breed' />
+          </div>
           <div className="radioButton">
             <span>Gender</span>
             <label><input type="radio" name='sex' value={'male'}
@@ -45,7 +50,7 @@ const Add = () => {
               onChange={onChange} />Female</label>
           </div>
           <label>Birthdate<input type="date" name='cat_birthdate' onChange={onChange} /></label>
-
+          <UploadFile />
           {/* <FormInput label="Birthdate" type="date" name='cat_birthdate' onChange={onChange} /> */}
           <button className='formButton'>Send</button>
         </form>

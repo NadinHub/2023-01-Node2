@@ -1,0 +1,42 @@
+// .uploadFile {
+//     padding: 10px;
+//     box-sizing: border-box;
+//     background-color: antiquewhite;
+
+//     div {
+//         padding: 5px;
+
+//         input {
+//             width: 0.1px;
+//             height: 0.1px;
+//             opacity: 0;
+//             overflow: hidden;
+//             position: absolute;
+//             z-index: -1;
+//         }
+
+//         input+label {
+//             font-size: 1.25em;
+//             font-weight: 700;
+//             color: white;
+//             background-color: black;
+//             display: inline-block;
+//             cursor: inherit;
+//         }
+//     }
+// }
+
+//classic upload file
+.uploadFile {
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: antiquewhite;
+    div {
+        padding: 5px;
+        label {
+            display: block;
+            padding-bottom: 0.5rem;
+        }
+    }
+
+}

@@ -4,7 +4,6 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import axios from 'axios'
 import "./cats.css"
-import Header from '../components/Header/Header';
 
 const Cats = () => {
     const [cats, setCats] = useState([]);
@@ -22,7 +21,6 @@ const Cats = () => {
 
     return (
         <div>
-            <Header/>
             <h1>Lama Cats Store</h1>
             <div className="catswrap">
                 {/* in Flex layout block__row is a Flex-container, because Flex works only in one demension - horizonte */}

@@ -1,5 +1,6 @@
 node_modules
 backend/config/index.js
+client/public/uploads
 logs/
 *.log
 
